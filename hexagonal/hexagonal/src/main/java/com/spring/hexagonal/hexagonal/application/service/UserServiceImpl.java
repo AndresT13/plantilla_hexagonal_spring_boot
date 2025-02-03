@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    /*
+
     @Override
     public UserDto createUser(UserDto userDTO) {
         if (userDTO == null) {
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
         }
 
 
-        UserEntity userEntity = MapperStruct.INSTANCE.toUser(userDTO);
+        UserEntity userEntity = UserMapper.toUserEntity(userDTO);
 
         userEntity.setFirstName(userDTO.getFirstName());
         userEntity.setSecondName(userDTO.getSecondName());
@@ -46,13 +46,14 @@ public class UserServiceImpl implements UserService {
 
         userEntity = userRepository.save(userEntity);
 
-        UserDto savedUserDto = MapperStruct.INSTANCE.toDTO(userEntity);
+        UserDto savedUserDto = UserMapper.toUserDto(userEntity);
 
         return savedUserDto;
     }
 
-    */
 
+
+    /*
     @Override
     public UserDto createUser(UserDto userDTO) {
         if (userDTO == null) {
@@ -76,6 +77,8 @@ public class UserServiceImpl implements UserService {
         // Retornar el DTO con los datos del usuario guardado
         return savedUserDto;
     }
+
+     */
 
     @Override
     public Optional<UserDto> getUser(Long id) {
